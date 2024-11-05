@@ -236,6 +236,7 @@
 
 
 
+// app/dashboard/content/[template-slug]/page.tsx
 "use client";
 import FormSection from "../_components/FormSection";
 import OutputSection from "../_components/OutputSection";
@@ -255,16 +256,16 @@ import { useRouter } from "next/navigation";
 import { UserSubscriptionContext } from "@/app/(context)/UserSubscriptionContext";
 import { UpdateCreditUsage } from "@/app/(context)/UpdateCreditUsage";
 
-// Updated PROPS interface to resolve possible type issues with `params`
-interface PROPS {
+interface PageProps {
   params: {
     "template-slug": string;
   };
 }
 
-function CreateNewContent(props: PROPS) {
+// Define the main component
+export default function CreateNewContent({ params }: PageProps) {
   const selectedTemplate: TEMPLATE | undefined = Templates?.find(
-    (item: TEMPLATE) => item.slug === props.params["template-slug"]
+    (item: TEMPLATE) => item.slug === params["template-slug"]
   );
 
   const [loading, setLoading] = useState(false);
@@ -332,16 +333,10 @@ function CreateNewContent(props: PROPS) {
   );
 }
 
-export default CreateNewContent;
-
-// If using server-side rendering to pass `params`
-export async function getServerSideProps(context: any) {
-  const { params } = context;
-  return {
-    props: {
-      params: {
-        "template-slug": params["template-slug"],
-      },
-    },
-  };
+// If using static parameters
+export async function generateStaticParams() {
+  const templateSlugs = Templates.map((template) => ({
+    "template-slug": template.slug,
+  }));
+  return templateSlugs;
 }
