@@ -1,4 +1,7 @@
+Developed ContentFusion, an AI-powered platform designed to streamline and elevate social media content creation across multiple formats. Integrated advanced AI tools to generate high-quality, plagiarism-free content tailored for YouTube scripts, blogs, and essays, meeting diverse user requirements with speed and precision. ContentFusion empowers daily social media users to produce engaging, original content efficiently, making content creation effortless and impactful.
+
 Live Working:  https://github.com/user-attachments/assets/59f0e526-105b-423b-9895-fbe5ef42643e
+
 
 
 <img width="1412" alt="Screenshot 2024-11-07 at 10 40 12 AM" src="https://github.com/user-attachments/assets/11ad4867-8e7a-4960-8ca6-20c28871f27e">
